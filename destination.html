@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Space tourism website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="destination">
+    <header class="primary-header flex">
+      <div>
+        <img src="./assets/shared/logo.svg" alt="space tourism" class="logo" />
+      </div>
+      <button
+        id="mobile-nav"
+        class="mobile-nav"
+        aria-controls="primary-nav"
+        aria-expanded="false">
+        <span class="sr-only">Menu</span>
+        <img
+          id="hamburger-icon"
+          src="./assets/shared/icon-hamburger.svg"
+          alt="Menu" />
+      </button>
+      <nav id="nav-bar" class="hidden">
+        <ul id="primary-nav" class="primary-nav underline-indicators flex">
+          <li>
+            <a
+              href="index.html"
+              class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-selected="false"
+              ><span>00</span>Home</a
+            >
+          </li>
+          <li class="active">
+            <a
+              href="destination.html"
+              class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-selected="true"
+              ><span>01</span>Destination</a
+            >
+          </li>
+          <li>
+            <a
+              href="crew.html"
+              class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-selected="false"
+              ><span>02</span>Crew</a
+            >
+          </li>
+          <li>
+            <a
+              href="technology.html"
+              class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-selected="false"
+              ><span>03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="grid-container">
+      <div>
+        <h1 class="numbered-title"><span>01</span>Pick your destination</h1>
+        <img id="destination-image" class="destination-image" src="" alt="" />
+      </div>
+      <div class="flow">
+        <div id="tab-list" class="tab-list underline-indicators flex"></div>
+        <h2
+          id="planet-name"
+          class="margin-y ff-serif fs-800 text-white uppercase"></h2>
+        <p id="planet-text"></p>
+        <div class="planet-adv-info flex border-top">
+          <h3 class="ff-sans-cond fs-200 letter-spacing-3 text-light uppercase">
+            Avg. distance
+            <span
+              id="average-distance"
+              class="d-block ff-serif fs-500 text-white uppercase"></span>
+          </h3>
+          <h3 class="ff-sans-cond fs-200 letter-spacing-3 text-light uppercase">
+            Est. Travel time
+            <span
+              id="travel-time"
+              class="d-block ff-serif fs-500 text-white uppercase"></span>
+          </h3>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
