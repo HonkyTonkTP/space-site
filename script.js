@@ -60,6 +60,9 @@ async function displayCrewData(member = 0) {
 }
 
 function displayCrewDataToDOM(data, member) {
+  console.log('data: ');
+  console.log(data);
+
   const dotList = document.getElementById('dot-list');
   dotList.innerHTML = '';
 
