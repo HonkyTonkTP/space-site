@@ -1,7 +1,11 @@
 async function displayDestinationsData(planet = 0) {
-  const { destinations } = await fetch('data.json').then((response) =>
+  /*const { destinations } = await fetch('data.json').then((response) =>
     response.json()
-  );
+  );*/
+
+  const { destinations } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
   displayDestinationDataToDOM(destinations, planet);
 }
@@ -46,7 +50,11 @@ function displayDestinationDataToDOM(data, planet) {
 }
 
 async function displayCrewData(member = 0) {
-  const { crew } = await fetch('data.json').then((response) => response.json());
+  // const { crew } = await fetch('data.json').then((response) => response.json());
+
+  const { crew } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
   displayCrewDataToDOM(crew, member);
 }
@@ -86,9 +94,13 @@ function displayCrewDataToDOM(data, member) {
 }
 
 async function displayTechnologyData(tech = 0) {
-  const { technology } = await fetch('data.json').then((response) =>
-    response.json()
-  );
+  // const { technology } = await fetch('data.json').then((response) =>
+  //   response.json()
+  // );
+
+  const { technology } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
   displayTechnologyDataToDOM(technology, tech);
 }
