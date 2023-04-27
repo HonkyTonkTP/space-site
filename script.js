@@ -4,7 +4,7 @@ async function displayDestinationsData(planet = 0) {
   );*/
 
   const { destinations } = await fetch(
-    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+    'https://honkytonktp.github.io/space-site/data.json'
   ).then((response) => response.json());
 
   displayDestinationDataToDOM(destinations, planet);
@@ -53,7 +53,7 @@ async function displayCrewData(member = 0) {
   // const { crew } = await fetch('data.json').then((response) => response.json());
 
   const { crew } = await fetch(
-    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+    'https://honkytonktp.github.io/space-site/data.json'
   ).then((response) => response.json());
 
   displayCrewDataToDOM(crew, member);
@@ -102,7 +102,7 @@ async function displayTechnologyData(tech = 0) {
   // );
 
   const { technology } = await fetch(
-    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+    'https://honkytonktp.github.io/space-site/data.json'
   ).then((response) => response.json());
 
   displayTechnologyDataToDOM(technology, tech);
