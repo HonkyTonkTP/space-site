@@ -1,44 +1,9 @@
-async function getGitHubData() {}
-
 async function displayDestinationsData(planet = 0) {
-  /*const { destinations } = await fetch('data.json').then((response) =>
-    response.json()
-  );*/
+  const { destinations } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
-  try {
-    const { destinations } = await fetch(
-      'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
-    ).then((response) => {
-      const json = response.json();
-      if (response.status === 200) {
-        return json;
-      } else if (response.status === 401 || response.status === 404) {
-        throw new Error(json.status_code + ' ' + json.status_message);
-      } else if (response.status >= 500) {
-        throw new Error('Server error');
-      } else {
-        throw new Error('Unknown error in fetch request');
-      }
-    });
-    console.log('json: ', destinations);
-    displayDestinationDataToDOM(destinations, planet);
-  } catch (error) {
-    console.log(error);
-  }
-
-  // const { destinations } = await fetch(
-  //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
-  // )
-  //   .then((d) => d.json())
-  //   .then((d) =>
-  //     fetch(
-  //       `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
-  //     )
-  //   )
-  //   .then((d) => d.json())
-  //   .then((d) => JSON.parse(atob(d.content)));
-
-  // console.log(destinations);
+  displayDestinationDataToDOM(destinations, planet);
 }
 
 function displayDestinationDataToDOM(data, planet) {
@@ -81,21 +46,9 @@ function displayDestinationDataToDOM(data, planet) {
 }
 
 async function displayCrewData(member = 0) {
-  // const { crew } = await fetch('data.json').then((response) => response.json());
-
   const { crew } = await fetch(
     'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
   ).then((response) => response.json());
-
-  // const { crew } = await fetch(`/space-site/data.json`)
-  //   .then((d) => d.json())
-  //   .then((d) =>
-  //     fetch(
-  //       `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
-  //     )
-  //   )
-  //   .then((d) => d.json())
-  //   .then((d) => JSON.parse(atob(d.content)));
 
   displayCrewDataToDOM(crew, member);
 }
@@ -138,25 +91,9 @@ function displayCrewDataToDOM(data, member) {
 }
 
 async function displayTechnologyData(tech = 0) {
-  // const { technology } = await fetch('data.json').then((response) =>
-  //   response.json()
-  // );
-
   const { technology } = await fetch(
     'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
   ).then((response) => response.json());
-
-  // const { technology } = await fetch(
-  //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
-  // )
-  //   .then((d) => d.json())
-  //   .then((d) =>
-  //     fetch(
-  //       `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
-  //     )
-  //   )
-  //   .then((d) => d.json())
-  //   .then((d) => JSON.parse(atob(d.content)));
 
   displayTechnologyDataToDOM(technology, tech);
 }
@@ -228,10 +165,8 @@ function getTabData(e) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('pathname: ', window.location.pathname);
   switch (window.location.pathname) {
     case '/space-site/destination.html':
-      console.log('destinations:', window.location.pathname);
       displayDestinationsData();
       document.getElementById('tab-list').addEventListener('click', getTabData);
       break;
