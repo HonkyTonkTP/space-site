@@ -5,9 +5,26 @@ async function displayDestinationsData(planet = 0) {
     response.json()
   );*/
 
-  const { destinations } = await fetch(
-    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
-  ).then((response) => response.json());
+  try {
+    const { destinations } = await fetch(
+      'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+    ).then((response) => {
+      const json = response.json();
+      if (response.status === 200) {
+        return json;
+      } else if (response.status === 401 || response.status === 404) {
+        throw new Error(json.status_code + ' ' + json.status_message);
+      } else if (response.status >= 500) {
+        throw new Error('Server error');
+      } else {
+        throw new Error('Unknown error in fetch request');
+      }
+    });
+
+    displayDestinationDataToDOM(destinations, planet);
+  } catch (error) {
+    console.log(error);
+  }
 
   // const { destinations } = await fetch(
   //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
@@ -22,7 +39,6 @@ async function displayDestinationsData(planet = 0) {
   //   .then((d) => JSON.parse(atob(d.content)));
 
   // console.log(destinations);
-  displayDestinationDataToDOM(destinations, planet);
 }
 
 function displayDestinationDataToDOM(data, planet) {
