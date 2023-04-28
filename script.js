@@ -213,16 +213,16 @@ function getTabData(e) {
   e.preventDefault();
 
   switch (window.location.pathname) {
-    case '/destination.html':
+    case '/space-site/destination.html':
       updateDOMAndDisplayData(e, displayDestinationsData);
       break;
-    case '/crew.html':
+    case '/space-site/crew.html':
       updateDOMAndDisplayData(e, displayCrewData);
       break;
-    case '/technology.html':
+    case '/space-site/technology.html':
       updateDOMAndDisplayData(e, displayTechnologyData);
       break;
-    case '/index.html':
+    case '/space-site/index.html':
     default:
   }
 }
@@ -230,20 +230,20 @@ function getTabData(e) {
 document.addEventListener('DOMContentLoaded', () => {
   console.log('pathname: ', window.location.pathname);
   switch (window.location.pathname) {
-    case '/destination.html':
+    case '/space-site/destination.html':
       console.log('destinations:', window.location.pathname);
       displayDestinationsData();
       document.getElementById('tab-list').addEventListener('click', getTabData);
       break;
-    case '/crew.html':
+    case '/space-site/crew.html':
       displayCrewData();
       document.getElementById('dot-list').addEventListener('click', getTabData);
       break;
-    case '/technology.html':
+    case '/space-site/technology.html':
       displayTechnologyData();
       document.getElementById('num-list').addEventListener('click', getTabData);
       break;
-    case '/index.html':
+    case '/space-site/index.html':
     default:
   }
 });
