@@ -20,7 +20,7 @@ async function displayDestinationsData(planet = 0) {
         throw new Error('Unknown error in fetch request');
       }
     });
-
+    console.log('json: ', destinations);
     displayDestinationDataToDOM(destinations, planet);
   } catch (error) {
     console.log(error);
