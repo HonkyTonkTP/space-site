@@ -5,23 +5,23 @@ async function displayDestinationsData(planet = 0) {
     response.json()
   );*/
 
+  const { destinations } = await fetch('/space-site/data.json').then(
+    (response) => response.json()
+  );
+
   // const { destinations } = await fetch(
-  //   'https://honkytonktp.github.io/space-site/data.json'
-  // ).then((response) => response.json());
+  //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
+  // )
+  //   .then((d) => d.json())
+  //   .then((d) =>
+  //     fetch(
+  //       `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
+  //     )
+  //   )
+  //   .then((d) => d.json())
+  //   .then((d) => JSON.parse(atob(d.content)));
 
-  const { destinations } = await fetch(
-    `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
-  )
-    .then((d) => d.json())
-    .then((d) =>
-      fetch(
-        `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
-      )
-    )
-    .then((d) => d.json())
-    .then((d) => JSON.parse(atob(d.content)));
-
-  console.log(destinations);
+  // console.log(destinations);
   displayDestinationDataToDOM(destinations, planet);
 }
 
@@ -71,9 +71,7 @@ async function displayCrewData(member = 0) {
   //   'https://honkytonktp.github.io/space-site/data.json'
   // ).then((response) => response.json());
 
-  const { crew } = await fetch(
-    `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
-  )
+  const { crew } = await fetch(`/space-site/data.json`)
     .then((d) => d.json())
     .then((d) =>
       fetch(
@@ -128,21 +126,21 @@ async function displayTechnologyData(tech = 0) {
   //   response.json()
   // );
 
-  // const { technology } = await fetch(
-  //   'https://honkytonktp.github.io/space-site/data.json'
-  // ).then((response) => response.json());
+  const { technology } = await fetch('/space-site/data.json').then((response) =>
+    response.json()
+  );
 
-  const { technology } = await fetch(
-    `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
-  )
-    .then((d) => d.json())
-    .then((d) =>
-      fetch(
-        `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
-      )
-    )
-    .then((d) => d.json())
-    .then((d) => JSON.parse(atob(d.content)));
+  // const { technology } = await fetch(
+  //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
+  // )
+  //   .then((d) => d.json())
+  //   .then((d) =>
+  //     fetch(
+  //       `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
+  //     )
+  //   )
+  //   .then((d) => d.json())
+  //   .then((d) => JSON.parse(atob(d.content)));
 
   displayTechnologyDataToDOM(technology, tech);
 }
