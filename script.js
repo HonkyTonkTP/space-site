@@ -230,6 +230,7 @@ function getTabData(e) {
 document.addEventListener('DOMContentLoaded', () => {
   switch (window.location.pathname) {
     case '/destination.html':
+      console.log('destinations:', window.location.pathname);
       displayDestinationsData();
       document.getElementById('tab-list').addEventListener('click', getTabData);
       break;
