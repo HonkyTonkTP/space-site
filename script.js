@@ -5,9 +5,9 @@ async function displayDestinationsData(planet = 0) {
     response.json()
   );*/
 
-  const { destinations } = await fetch('/space-site/data.json').then(
-    (response) => response.json()
-  );
+  const { destinations } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
   // const { destinations } = await fetch(
   //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
@@ -67,19 +67,19 @@ function displayDestinationDataToDOM(data, planet) {
 async function displayCrewData(member = 0) {
   // const { crew } = await fetch('data.json').then((response) => response.json());
 
-  // const { crew } = await fetch(
-  //   'https://honkytonktp.github.io/space-site/data.json'
-  // ).then((response) => response.json());
+  const { crew } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
-  const { crew } = await fetch(`/space-site/data.json`)
-    .then((d) => d.json())
-    .then((d) =>
-      fetch(
-        `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
-      )
-    )
-    .then((d) => d.json())
-    .then((d) => JSON.parse(atob(d.content)));
+  // const { crew } = await fetch(`/space-site/data.json`)
+  //   .then((d) => d.json())
+  //   .then((d) =>
+  //     fetch(
+  //       `https://api.github.com/repos/HonkyTonkTP/space-site/git/blobs/${d.sha}`
+  //     )
+  //   )
+  //   .then((d) => d.json())
+  //   .then((d) => JSON.parse(atob(d.content)));
 
   displayCrewDataToDOM(crew, member);
 }
@@ -126,9 +126,9 @@ async function displayTechnologyData(tech = 0) {
   //   response.json()
   // );
 
-  const { technology } = await fetch('/space-site/data.json').then((response) =>
-    response.json()
-  );
+  const { technology } = await fetch(
+    'https://raw.githubusercontent.com/HonkyTonkTP/space-site/main/data.json'
+  ).then((response) => response.json());
 
   // const { technology } = await fetch(
   //   `https://api.github.com/repos/HonkyTonkTP/space-site/contents/data.json`
