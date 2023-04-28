@@ -24,6 +24,8 @@ function displayDestinationDataToDOM(data, planet) {
     } else {
       btn.setAttribute('aria-selected', 'false');
     }
+
+    btn.setAttribute('tabIndex', 5 + index);
     btn.innerHTML = item.name;
     tabList.appendChild(btn);
   });
@@ -67,6 +69,8 @@ function displayCrewDataToDOM(data, member) {
     } else {
       btn.setAttribute('aria-selected', 'false');
     }
+
+    btn.setAttribute('tabIndex', 5 + index);
 
     const span = document.createElement('span');
     span.classList.add('sr-only');
@@ -120,6 +124,7 @@ function displayTechnologyDataToDOM(data, tech) {
       btn.setAttribute('aria-selected', 'false');
     }
 
+    btn.setAttribute('tabIndex', 5 + index);
     btn.innerText = index + 1;
     btn.classList.add('ff-serif', 'fs-600', 'text-white');
 

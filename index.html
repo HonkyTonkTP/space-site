@@ -42,6 +42,9 @@
             <a
               href="index.html"
               class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-checked="true"
+              role="button"
+              tabindex="1"
               ><span>00</span>Home</a
             >
           </li>
@@ -49,6 +52,9 @@
             <a
               href="destination.html"
               class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-checked="false"
+              role="button"
+              tabindex="2"
               ><span>01</span>Destination</a
             >
           </li>
@@ -56,6 +62,9 @@
             <a
               href="crew.html"
               class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-checked="false"
+              role="button"
+              tabindex="3"
               ><span>02</span>Crew</a
             >
           </li>
@@ -63,6 +72,9 @@
             <a
               href="technology.html"
               class="ff-sans-cond fs-300 letter-spacing-2 text-white uppercase"
+              aria-checked="false"
+              role="button"
+              tabindex="4"
               ><span>03</span>Technology</a
             >
           </li>
@@ -70,7 +82,7 @@
       </nav>
     </header>
     <main class="grid-container">
-      <h4 class="numbered-title"><span> </span></h1>
+      <h4 class="numbered-title sr-only" aria-hidden="true"><span>00</span>Home</h1>
       <div class="flow">
         <h1 class="ff-sans-cond fs-500 letter-spacing-1 text-light uppercase">
           So, you want to travel to
@@ -88,7 +100,7 @@
       <div>
         <a
           href="destination.html"
-          class="large-button uppercase ff-serif fs-600 text-dark bg-white"
+          class="large-button uppercase ff-serif fs-600 text-dark bg-white" role="button" aria-checked="false" tabindex="5"
           >Explore</a
         >
       </div>
