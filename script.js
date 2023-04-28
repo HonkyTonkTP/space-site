@@ -228,6 +228,7 @@ function getTabData(e) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('pathname: ', window.location.pathname);
   switch (window.location.pathname) {
     case '/destination.html':
       console.log('destinations:', window.location.pathname);
